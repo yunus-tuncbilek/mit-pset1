@@ -50,12 +50,20 @@ def monthsToDownPayment(annual_salary, portion_saved, total_cost, \
 
 annual_salary = float(input("Enter the starting salary: "))
 
-# Identify three saving rates, low, high, current to track bisection search
-# this rate represents the highest confirmed-unsuccessful rate
-low_savings_rate = 0
-# this rate represents the lowest confirmed-successful rate
+# BISECTION SEARCH over basis points for the saving rate
+# A basis point is equivalent to 0.01% or 0.0001 in decimals
+
+# We identify the savings rate by an integer from 0 to 10000 equal
+#   to the rate times 10000.
+# In the search, we only consider the rates that would produce an integer 
+#   when multipled by 10000.
+# For example, 10% or 0.1 is represented with 1000.
+# current savings rate is the rate currently being evaluated
+# low savings rate represents the highest confirmed-unsuccessful rate
+# high savings rate represents the lowest confirmed-successful rate
 # Note: initially we do not know if 100 percent saving would be successful.
 #   This is checked below.
+low_savings_rate = 0
 high_savings_rate = 10000 
 current_savings_rate = (low_savings_rate + high_savings_rate) / 2
 

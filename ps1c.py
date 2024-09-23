@@ -81,7 +81,7 @@ while True:
     # We have found the point separating the successful and unsuccessful
     if high_savings_rate == low_savings_rate + 1:
         # high_savings_rate would represent the lowest successful rate
-        print("Best savings rate:", high_savings_rate)
+        print("Best savings rate:", high_savings_rate/10000)
         print("Steps in bisection search:", steps)
         # print(high_savings_rate, savings)
         break
